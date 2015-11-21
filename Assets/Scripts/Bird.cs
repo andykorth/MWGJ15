@@ -24,8 +24,35 @@ public class Bird : MonoBehaviour {
 
 	private Quaternion rotation = Quaternion.identity;
 
+	private const float coconutDistance = 1.5f;
+
+	public GameObject coconutFreeFallPrefab;
+
 	public void Start(){
-		coconut.localPosition = Vector3.down * 1.5f;
+		coconut.localPosition = Vector3.down * coconutDistance;
+	}
+
+	public void DropCoconut(){
+		GameObject go = (GameObject) Instantiate (coconutFreeFallPrefab, coconut.position, Quaternion.identity);
+		go.GetComponent<Rigidbody> ().velocity = vel;
+
+		coconut.gameObject.SetActive (false);
+	}
+
+	void OnTriggerEnter(Collider other) {
+		if (other.gameObject.layer == LayerMask.NameToLayer ("Ground")) {
+			BirdDied ();
+		} else {
+			Debug.Log ("Other collision");
+		}
+	}
+
+	public void BirdDied(){
+
+	}
+
+	public void AttachCoconut(){
+		coconut.gameObject.SetActive (true);
 	}
 
 	public Quaternion flattenedRotation {
@@ -57,21 +84,17 @@ public class Bird : MonoBehaviour {
 
 		Debug.DrawLine (transform.position, transform.position + vel, Color.blue);
 
-		Vector3 euler = rotation.eulerAngles;
-
-
 		rotation = unrolledRotation * Quaternion.Euler (inputDir * Time.deltaTime) * Quaternion.AngleAxis (roll, Vector3.forward);
-
-//		rotation *= Quaternion.Euler (inputDir * Time.deltaTime);
-//
-//		rotation = Quaternion.Euler(new Vector3(euler.x + inputDir.x * Time.deltaTime, rotation.eulerAngles.y +inputDir.z * Time.deltaTime, roll));
-
-		//kinematic.velocity = vel;
 
 		rotation = Util.ConstantSlerp (rotation, flattenedRotation, rotationReturnRate * Time.deltaTime);
 		transform.localRotation = rotation;
 
 		UpdateCoconut ();
+
+		if (Input.GetKeyDown (KeyCode.Space)) {
+			DropCoconut ();
+		}
+
 	}
 
 //	private Vector3 coconutRelativeVelocity;
@@ -84,7 +107,7 @@ public class Bird : MonoBehaviour {
 //		Vector3 pos = Vector3.Lerp(coconut.localPosition, coconutRelativeVelocity * Time.deltaTime, 0.2f);
 //		pos = Vector3.ClampMagnitude (pos, 3f);
 
-		coconut.localPosition =  Quaternion.AngleAxis (coconutRoll, transform.forward) * Vector3.up * -1.5f;
+		coconut.localPosition =  Quaternion.AngleAxis (coconutRoll, transform.forward) * Vector3.up * -coconutDistance;
 
 //		Debug.Log ("coconutRoll: " + coconutRoll);
 
