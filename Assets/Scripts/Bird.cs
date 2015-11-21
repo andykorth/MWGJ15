@@ -39,10 +39,18 @@ public class Bird : SingletonScript<Bird> {
 
 	public void DropCoconut(){
 
+		if (!hasCoconut) {
+			return;
+		}
+
 		hasCoconut = false;
 
 		GameObject go = (GameObject) Instantiate (coconutFreeFallPrefab, coconut.position, Quaternion.identity);
-		go.GetComponent<Rigidbody> ().velocity = vel + Vector3.down * gravity * 2.0f;
+		Rigidbody rb = go.GetComponent<Rigidbody> ();
+
+//		rb.
+//		rb.useGravity = false;
+		rb.velocity = transform.forward * 80.0f;
 
 		coconut.gameObject.SetActive (false);
 	}

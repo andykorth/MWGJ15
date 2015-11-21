@@ -42,7 +42,9 @@ MonoBehaviour:
   birdDeadExplosion: {fileID: 100000, guid: dc6da1d6e30d6dd42ae82d67fdea65a3, type: 2}
   coconutLandingExplosion: {fileID: 100004, guid: 7867af58a6ec48846ae807eb4022fbaa,
     type: 2}
+  coconutSuccess: {fileID: 131208, guid: 9d1099bd25c99461e923d03f7e2fa591, type: 2}
   gotACoconut: {fileID: 137842, guid: 93ad4eff34cde4369b4cbc55bf3efb2c, type: 2}
+  points: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
