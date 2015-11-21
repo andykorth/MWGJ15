@@ -18,9 +18,15 @@ public class Bird : MonoBehaviour {
 	public float rollMax = 85.0f;
 	private float roll = 0;
 
-	public SphereCollider coconutCollider;
+	private float coconutRoll = 0;
+
+	public Transform coconut;
 
 	private Quaternion rotation = Quaternion.identity;
+
+	public void Start(){
+		coconut.localPosition = Vector3.down * 1.5f;
+	}
 
 	public Quaternion flattenedRotation {
 		get{
@@ -32,10 +38,6 @@ public class Bird : MonoBehaviour {
 		get{
 			return Quaternion.Euler(new Vector3(rotation.eulerAngles.x, rotation.eulerAngles.y, 0));
 		}
-	}
-
-	public void Start(){
-		Physics.IgnoreCollision (this.GetComponent<SphereCollider> (), coconutCollider, true);
 	}
 
 	void Update () {
@@ -51,6 +53,7 @@ public class Bird : MonoBehaviour {
 		transform.position += (vel + Vector3.down * gravity) * Time.deltaTime;
 
 		roll = Mathf.Lerp(roll, -Input.GetAxisRaw ("Horizontal") * rollMax, rollRate);
+		coconutRoll = Mathf.Lerp (coconutRoll, roll, 0.02f);
 
 		Debug.DrawLine (transform.position, transform.position + vel, Color.blue);
 
@@ -63,9 +66,29 @@ public class Bird : MonoBehaviour {
 //
 //		rotation = Quaternion.Euler(new Vector3(euler.x + inputDir.x * Time.deltaTime, rotation.eulerAngles.y +inputDir.z * Time.deltaTime, roll));
 
+		//kinematic.velocity = vel;
 
 		rotation = Util.ConstantSlerp (rotation, flattenedRotation, rotationReturnRate * Time.deltaTime);
 		transform.localRotation = rotation;
+
+		UpdateCoconut ();
+	}
+
+//	private Vector3 coconutRelativeVelocity;
+
+	public void UpdateCoconut(){
+//		Vector3 coconutRelativeVelocity = Vector3.down * gravity;
+//		Debug.DrawLine (coconut.position, coconut.position + coconutRelativeVelocity, Color.green);
+//
+//
+//		Vector3 pos = Vector3.Lerp(coconut.localPosition, coconutRelativeVelocity * Time.deltaTime, 0.2f);
+//		pos = Vector3.ClampMagnitude (pos, 3f);
+
+		coconut.localPosition =  Quaternion.AngleAxis (coconutRoll, transform.forward) * Vector3.up * -1.5f;
+
+//		Debug.Log ("coconutRoll: " + coconutRoll);
+
+		Debug.DrawLine (transform.position, coconut.position, Color.green);
 
 	}
 }
