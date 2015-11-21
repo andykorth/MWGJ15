@@ -124,9 +124,7 @@ public class Bird : SingletonScript<Bird> {
 
 		UpdateCoconut ();
 
-		if (Input.GetKeyDown (KeyCode.Space)) {
-			DropCoconut ();
-		}
+	
 
 	}
 

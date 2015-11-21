@@ -12,4 +12,17 @@ public class GameManager : SingletonScript<GameManager> {
 
 		AddDelayed (1.5f, () => Application.LoadLevel (Application.loadedLevelName)); 
 	}
+
+	public void Update(){
+
+		if (Input.GetKeyDown (KeyCode.Space)) {
+			Bird.i.DropCoconut ();
+		}
+
+		if (Input.GetKeyUp (KeyCode.Space)) {
+
+		}
+
+	}
+
 }
