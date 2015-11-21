@@ -49,7 +49,7 @@ public class Bird : MonoBehaviour {
 			Vector3 hitPoint = c.ClosestPointOnBounds (bird);
 
 			Vector3 normal = bird - hitPoint;
-			GameObject go = (GameObject) Instantiate (GameManager.i.birdDeadExplosion, bird, Quaternion.FromToRotation(Vector3.forward, normal));
+			GameObject go = (GameObject) Instantiate (GameManager.i.birdDeadExplosion, bird, Quaternion.FromToRotation(-Vector3.forward, normal));
 			Destroy (go, 2.0f);
 
 			BirdDied ();
