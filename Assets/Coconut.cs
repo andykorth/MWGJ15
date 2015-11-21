@@ -11,6 +11,7 @@ public class Coconut : MonoBehaviour {
 				GameObject go = (GameObject) Instantiate (GameManager.i.coconutLandingExplosion, contact.point,Quaternion.FromToRotation(Vector3.forward, contact.normal));
 				Destroy (go, 2.0f);
 			}
+			Destroy (this.gameObject);
 		}
 	}
 }

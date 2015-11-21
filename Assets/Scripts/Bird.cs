@@ -36,7 +36,7 @@ public class Bird : SingletonScript<Bird> {
 
 	public void DropCoconut(){
 		GameObject go = (GameObject) Instantiate (coconutFreeFallPrefab, coconut.position, Quaternion.identity);
-		go.GetComponent<Rigidbody> ().velocity = vel;
+		go.GetComponent<Rigidbody> ().velocity = vel + Vector3.down * gravity * 2.0f;
 
 		coconut.gameObject.SetActive (false);
 	}
@@ -54,7 +54,7 @@ public class Bird : SingletonScript<Bird> {
 
 			BirdDied ();
 		} else {
-			Debug.Log ("Other collision");
+			//Debug.Log ("Other collision");
 		}
 	}
 
