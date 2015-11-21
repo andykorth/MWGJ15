@@ -34,7 +34,13 @@ public class Bird : SingletonScript<Bird> {
 		coconut.localPosition = Vector3.down * coconutDistance;
 	}
 
+	private bool hasCoconut = true;
+
+
 	public void DropCoconut(){
+
+		hasCoconut = false;
+
 		GameObject go = (GameObject) Instantiate (coconutFreeFallPrefab, coconut.position, Quaternion.identity);
 		go.GetComponent<Rigidbody> ().velocity = vel + Vector3.down * gravity * 2.0f;
 
@@ -68,7 +74,15 @@ public class Bird : SingletonScript<Bird> {
 	}
 
 	public void AttachCoconut(){
-		coconut.gameObject.SetActive (true);
+		if (!hasCoconut) {
+			hasCoconut = true;
+			GameObject go = (GameObject) Instantiate (GameManager.i.gotACoconut, this.transform.position, Quaternion.identity);
+			Destroy (go, 3.0f);
+			go.transform.parent = this.transform;
+			go.transform.localPosition = Vector3.zero;
+
+			coconut.gameObject.SetActive (true);
+		}
 	}
 
 	public Quaternion flattenedRotation {

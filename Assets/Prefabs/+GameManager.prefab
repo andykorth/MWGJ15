@@ -42,13 +42,18 @@ MonoBehaviour:
   birdDeadExplosion: {fileID: 100000, guid: dc6da1d6e30d6dd42ae82d67fdea65a3, type: 2}
   coconutLandingExplosion: {fileID: 100004, guid: 7867af58a6ec48846ae807eb4022fbaa,
     type: 2}
+  gotACoconut: {fileID: 137842, guid: 93ad4eff34cde4369b4cbc55bf3efb2c, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: gotACoconut
+      value: 
+      objectReference: {fileID: 100000, guid: b1bbe9f8a70594d4c83ebffab3e0f652, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 141214}
