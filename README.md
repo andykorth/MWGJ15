@@ -1,2 +1,3 @@
 # MWGJ15
-Midwest Game Jam 2015
+Our game entry for the Midwest Game Jam 2015!
+
