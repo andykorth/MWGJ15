@@ -110,6 +110,7 @@ public class Bird : SingletonScript<Bird> {
 		if (dead)
 			return;
 
+		// updating position and velocity:
 		Vector3 inputDir = new Vector3 (Input.GetAxisRaw ("Vertical") * turnSpeedY, Input.GetAxisRaw ("Horizontal") * turnSpeedX, 0);
 		Vector3 thrust = this.transform.forward * speed;
 
@@ -118,12 +119,27 @@ public class Bird : SingletonScript<Bird> {
 		Vector3 liftVec = vel.magnitude * lift * this.transform.up;
 		vel = vel * drag + liftVec + thrust;
 
+		// clamp vel from going straight up.
+		float dot = Vector3.Dot(vel, Vector3.up);
+		float d = Mathf.Pow (dot, 2.2f) / 1000.0f;
+		if (float.IsNaN (d))
+			d = 1.0f;
+		d = Mathf.Max (1.0f, d);
+		vel.y /= d;
+//		Debug.Log ("dot: " + d);
+
 		transform.position += (vel + Vector3.down * gravity) * Time.deltaTime;
 
+		// Updating rotation of the bird:
 		roll = Mathf.Lerp(roll, -Input.GetAxisRaw ("Horizontal") * rollMax, rollRate);
 		coconutRoll = Mathf.Lerp (coconutRoll, roll, 0.02f);
 
 		Debug.DrawLine (transform.position, transform.position + vel, Color.blue);
+
+//		Debug.Log (rotation.eulerAngles.x);
+		if (Mathf.Abs(rotation.eulerAngles.x - 270f) < 5.0f) {
+			inputDir.x = 0f;
+		}
 
 		rotation = unrolledRotation * Quaternion.Euler (inputDir * Time.deltaTime) * Quaternion.AngleAxis (roll, Vector3.forward);
 
