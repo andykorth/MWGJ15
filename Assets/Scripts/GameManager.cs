@@ -11,6 +11,10 @@ public class GameManager : SingletonScript<GameManager> {
 
 	public int points = 0;
 
+	public void Start(){
+		MusicManager.i.PlayGameMusic ();
+	}
+
 	public void GameOver(){
 
 		AddDelayed (1.5f, () => Application.LoadLevel (Application.loadedLevelName)); 
