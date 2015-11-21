@@ -28,6 +28,8 @@ public class Bird : MonoBehaviour {
 
 	public GameObject coconutFreeFallPrefab;
 
+	private bool dead = false;
+
 	public void Start(){
 		coconut.localPosition = Vector3.down * coconutDistance;
 	}
@@ -39,8 +41,17 @@ public class Bird : MonoBehaviour {
 		coconut.gameObject.SetActive (false);
 	}
 
-	void OnTriggerEnter(Collider other) {
-		if (other.gameObject.layer == LayerMask.NameToLayer ("Ground")) {
+	void OnTriggerEnter(Collider c){
+
+
+		if (c.gameObject.layer == LayerMask.NameToLayer ("Ground")) {
+			Vector3 bird = transform.position;
+			Vector3 hitPoint = c.ClosestPointOnBounds (bird);
+
+			Vector3 normal = bird - hitPoint;
+			GameObject go = (GameObject) Instantiate (GameManager.i.birdDeadExplosion, bird, Quaternion.FromToRotation(Vector3.forward, normal));
+			Destroy (go, 2.0f);
+
 			BirdDied ();
 		} else {
 			Debug.Log ("Other collision");
@@ -48,7 +59,12 @@ public class Bird : MonoBehaviour {
 	}
 
 	public void BirdDied(){
+		Debug.Log ("Bird died");
+		dead = true;
 
+		this.gameObject.SetActive (false);
+
+		GameManager.i.GameOver ();
 	}
 
 	public void AttachCoconut(){
@@ -69,6 +85,9 @@ public class Bird : MonoBehaviour {
 
 	void Update () {
 	
+		if (dead)
+			return;
+
 		Vector3 inputDir = new Vector3 (Input.GetAxisRaw ("Vertical") * turnSpeedY, Input.GetAxisRaw ("Horizontal") * turnSpeedX, 0);
 		Vector3 thrust = this.transform.forward * speed;
 

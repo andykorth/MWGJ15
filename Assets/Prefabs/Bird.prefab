@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 461396}
   - 114: {fileID: 11432554}
   - 135: {fileID: 13595360}
+  - 54: {fileID: 5456502}
   m_Layer: 0
   m_Name: Bird
   m_TagString: Untagged
@@ -62,7 +63,6 @@ GameObject:
   - 33: {fileID: 3306460}
   - 135: {fileID: 13591498}
   - 23: {fileID: 2325284}
-  - 54: {fileID: 5453284}
   m_Layer: 0
   m_Name: Coconut
   m_TagString: Untagged
@@ -214,19 +214,19 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 180738}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!54 &5453284
+--- !u!54 &5456502
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 191450}
+  m_GameObject: {fileID: 139570}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 100
-  m_AngularDrag: .300000012
+  m_Drag: 0
+  m_AngularDrag: .0500000007
   m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 2
+  m_IsKinematic: 1
+  m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!114 &11432554
@@ -250,6 +250,8 @@ MonoBehaviour:
   rollRate: .0500000007
   rollMax: 60
   coconut: {fileID: 424500}
+  coconutFreeFallPrefab: {fileID: 147304, guid: e8bd35463c92b409795284024d7c72b0,
+    type: 2}
 --- !u!135 &13591498
 SphereCollider:
   m_ObjectHideFlags: 1
