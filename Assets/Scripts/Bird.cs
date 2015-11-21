@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Bird : MonoBehaviour {
+public class Bird : SingletonScript<Bird> {
 
 	private Vector3 vel;
 	public float speed;
