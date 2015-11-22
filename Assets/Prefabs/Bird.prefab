@@ -241,10 +241,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  lift: .0500000007
+  lift: .100000001
   drag: .600000024
   turnSpeedX: 80
-  turnSpeedY: 50
+  turnSpeedY: 80
   rotationReturnRate: 40
   gravity: 10
   rollRate: .0500000007

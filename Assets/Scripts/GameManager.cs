@@ -9,10 +9,14 @@ public class GameManager : SingletonScript<GameManager> {
 
 	public GameObject gotACoconut;
 
+	public Transform nests;
+	public Transform rings;
+
 	public int points = 0;
 
 	public void Start(){
 		MusicManager.i.PlayGameMusic ();
+		UpdateNestRingCombo ();
 	}
 
 	public void GameOver(){
@@ -24,6 +28,21 @@ public class GameManager : SingletonScript<GameManager> {
 	{
 		points += 1;
 		GameUI.i.UpdateScore (points);
+
+		UpdateNestRingCombo ();
+	}
+
+	public void UpdateNestRingCombo(){
+		ActivateOneIn (nests);
+		ActivateOneIn (rings);
+	}
+
+	public void ActivateOneIn(Transform parent){
+		int target = Random.Range(0,parent.childCount);
+		for(int i= 0; i < parent.childCount; i++){
+			GameObject go = parent.GetChild(i).gameObject;
+			go.SetActive (target == i);
+		}
 	}
 
 	public void Update(){
