@@ -63,6 +63,21 @@ public class Bird : SingletonScript<Bird> {
 		coconut.gameObject.SetActive (false);
 	}
 
+	void OnCollisionEnter(Collision c){
+		if (c.gameObject.layer == LayerMask.NameToLayer ("Ground")) {
+			Vector3 bird = transform.position;
+			Vector3 hitPoint = c.contacts [0].point;
+
+			Vector3 normal = c.contacts [0].normal;
+			GameObject go = (GameObject) Instantiate (GameManager.i.birdDeadExplosion, bird, Quaternion.FromToRotation(-Vector3.forward, normal));
+			Destroy (go, 2.0f);
+
+			BirdDied ();
+		} else {
+			//Debug.Log ("Other collision");
+		}
+	}
+
 	void OnTriggerEnter(Collider c){
 
 

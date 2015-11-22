@@ -755,6 +755,7 @@ MonoBehaviour:
   coconut: {fileID: 424500}
   coconutFreeFallPrefab: {fileID: 147304, guid: e8bd35463c92b409795284024d7c72b0,
     type: 2}
+  dead: 0
   animator: {fileID: 9572512}
 --- !u!135 &13591498
 SphereCollider:
@@ -775,7 +776,7 @@ SphereCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 139570}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: .610000014
