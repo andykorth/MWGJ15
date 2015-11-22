@@ -13,7 +13,7 @@ public class BirdFollowCamera : MonoBehaviour
 	public void LateUpdate ()
 	{
 
-		if (GameManager.i.paused)
+		if (GameManager.i.paused || Bird.i.dead)
 			return;
 		
 

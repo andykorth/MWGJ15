@@ -28,7 +28,7 @@ public class Bird : SingletonScript<Bird> {
 
 	public GameObject coconutFreeFallPrefab;
 
-	private bool dead = false;
+	public bool dead = false;
 	private bool inverted;
 
 	public void Start(){
