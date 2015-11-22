@@ -8,7 +8,7 @@ public class MusicManager : SingletonScript<MusicManager> {
 	private AudioSource titleSauce, gameSauce;
 
 	public AudioClip menuClick;
-	public AudioClip gameOver;
+	public AudioClip gameOver, getCoconut, launchCoconut, birdExplosion, coconutMiss;
 
 	// Use this for initialization
 	void Start () {

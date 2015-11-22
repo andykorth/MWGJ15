@@ -43,6 +43,10 @@ MonoBehaviour:
   gameplay: {fileID: 8300000, guid: 50165cd256cca459f8ebe7bad59f0b0e, type: 3}
   menuClick: {fileID: 8300000, guid: 6b7a9fde0e60e42bb8eab223a246cd65, type: 3}
   gameOver: {fileID: 8300000, guid: cfe7a251e86974376b72af38899822cf, type: 3}
+  getCoconut: {fileID: 8300000, guid: 44a2a15ded7bc46419ee03ddb7745874, type: 3}
+  launchCoconut: {fileID: 8300000, guid: 7d64e58cb9bf2400fa71cc6307385664, type: 3}
+  birdExplosion: {fileID: 8300000, guid: 0462663643b4043f9932d8d54d5a010f, type: 3}
+  coconutMiss: {fileID: 8300000, guid: c101d25d28b2a46598f978d2e9b20bbe, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -62,6 +66,22 @@ Prefab:
       propertyPath: gameOver
       value: 
       objectReference: {fileID: 8300000, guid: cfe7a251e86974376b72af38899822cf, type: 3}
+    - target: {fileID: 0}
+      propertyPath: getCoconut
+      value: 
+      objectReference: {fileID: 8300000, guid: 44a2a15ded7bc46419ee03ddb7745874, type: 3}
+    - target: {fileID: 0}
+      propertyPath: launchCoconut
+      value: 
+      objectReference: {fileID: 8300000, guid: 7d64e58cb9bf2400fa71cc6307385664, type: 3}
+    - target: {fileID: 0}
+      propertyPath: birdExplosion
+      value: 
+      objectReference: {fileID: 8300000, guid: 0462663643b4043f9932d8d54d5a010f, type: 3}
+    - target: {fileID: 0}
+      propertyPath: coconutMiss
+      value: 
+      objectReference: {fileID: 8300000, guid: c101d25d28b2a46598f978d2e9b20bbe, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 102934}

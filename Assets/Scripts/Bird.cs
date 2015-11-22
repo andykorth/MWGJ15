@@ -59,7 +59,7 @@ public class Bird : SingletonScript<Bird> {
 //		rb.useGravity = false;
 		rb.velocity = transform.forward * 95.0f;
 
-
+		MusicManager.PlayClip(MusicManager.i.launchCoconut);
 		coconut.gameObject.SetActive (false);
 	}
 
@@ -84,6 +84,8 @@ public class Bird : SingletonScript<Bird> {
 		Debug.Log ("Bird died");
 		dead = true;
 
+		MusicManager.PlayClip(MusicManager.i.birdExplosion);
+
 		this.gameObject.SetActive (false);
 
 		GameManager.i.GameOver ();
@@ -91,6 +93,9 @@ public class Bird : SingletonScript<Bird> {
 
 	public void AttachCoconut(){
 		if (!hasCoconut) {
+			MusicManager.PlayClip(MusicManager.i.getCoconut);
+
+
 			hasCoconut = true;
 			GameObject go = (GameObject) Instantiate (GameManager.i.gotACoconut, this.transform.position, Quaternion.identity);
 			Destroy (go, 3.0f);

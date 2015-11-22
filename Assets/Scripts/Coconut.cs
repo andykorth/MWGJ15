@@ -12,6 +12,8 @@ public class Coconut : MonoBehaviour {
 				Destroy (go, 2.0f);
 			}
 			Destroy (this.gameObject);
+
+			MusicManager.PlayClip(MusicManager.i.coconutMiss);
 		}
 		if (collision.collider.gameObject.layer == LayerMask.NameToLayer ("Nest")) {
 
@@ -23,6 +25,9 @@ public class Coconut : MonoBehaviour {
 				GameManager.i.GetPoint ();
 			}
 			Destroy (this.gameObject);
+
+
+			MusicManager.PlayClip(MusicManager.i.coconutMiss);
 		}
 
 	}
