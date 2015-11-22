@@ -33,11 +33,11 @@ public class MusicManager : SingletonScript<MusicManager> {
 			start.Play ();
 		}
 
-		AddAnimation (1.0f, (a) => {
+		AddAnimation (2.0f, (a) => {
 			start.volume = (a) * 0.5f;
 			stop.volume = (1f - a) * 0.5f;
 		});
-		AddDelayed (1.1f, stop.Stop);
+		AddDelayed (2.1f, stop.Stop);
 	}
 
 	
