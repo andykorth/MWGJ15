@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Feathers
+  m_Name: Feathers1
   m_Shader: {fileID: 4800000, guid: 6c3621cca3989ab47b005ce83dffc644, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
