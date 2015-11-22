@@ -12,6 +12,11 @@ public class BirdFollowCamera : MonoBehaviour
 
 	public void LateUpdate ()
 	{
+
+		if (GameManager.i.paused)
+			return;
+		
+
 		Transform b = bird.transform;
 		Vector3 target = b.position + bird.flattenedRotation * followDistance;
 		transform.position = Vector3.Lerp (transform.position, target, followRate * 60.0f * Time.deltaTime);

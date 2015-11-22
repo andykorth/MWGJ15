@@ -29,13 +29,20 @@ public class Bird : SingletonScript<Bird> {
 	public GameObject coconutFreeFallPrefab;
 
 	private bool dead = false;
+	private bool inverted;
 
 	public void Start(){
 		coconut.localPosition = Vector3.down * coconutDistance;
+		CheckInvert ();
+	}
+
+	public void CheckInvert(){
+		inverted = PlayerPrefs.GetInt ("Inverted", 1) == 1;
 	}
 
 	private bool hasCoconut = true;
 
+	public Animator animator;
 
 	public void DropCoconut(){
 
@@ -51,6 +58,7 @@ public class Bird : SingletonScript<Bird> {
 //		rb.
 //		rb.useGravity = false;
 		rb.velocity = transform.forward * 95.0f;
+
 
 		coconut.gameObject.SetActive (false);
 	}
@@ -107,11 +115,11 @@ public class Bird : SingletonScript<Bird> {
 
 	void Update () {
 	
-		if (dead)
+		if (dead || GameManager.i.paused)
 			return;
 
 		// updating position and velocity:
-		Vector3 inputDir = new Vector3 (Input.GetAxisRaw ("Vertical") * turnSpeedY, Input.GetAxisRaw ("Horizontal") * turnSpeedX, 0);
+		Vector3 inputDir = new Vector3 (Input.GetAxisRaw ("Vertical") * turnSpeedY * (inverted ? 1f : -1f), Input.GetAxisRaw ("Horizontal") * turnSpeedX, 0);
 		Vector3 thrust = this.transform.forward * speed;
 
 		Debug.DrawLine (transform.position, transform.position + thrust, Color.red);
@@ -128,11 +136,17 @@ public class Bird : SingletonScript<Bird> {
 		vel.y /= d;
 //		Debug.Log ("dot: " + d);
 
+
 		transform.position += (vel + Vector3.down * gravity) * Time.deltaTime;
 
 		// Updating rotation of the bird:
 		roll = Mathf.Lerp(roll, -Input.GetAxisRaw ("Horizontal") * rollMax, rollRate);
-		coconutRoll = Mathf.Lerp (coconutRoll, roll, 0.02f);
+		coconutRoll = Mathf.Lerp (coconutRoll, roll, 0.3f);
+
+		animator.SetFloat ("dot", dot);
+		animator.SetFloat ("flapSpeed", Mathf.Clamp01((dot - 10f) / 10.0f) + 1.0f );
+		animator.SetFloat ("Flapping", Mathf.Abs(roll));
+
 
 		Debug.DrawLine (transform.position, transform.position + vel, Color.blue);
 

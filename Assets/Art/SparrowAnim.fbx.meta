@@ -1,0 +1,218 @@
+fileFormatVersion: 2
+guid: ca0233d6ac166457681fa91432d10cc3
+timeCreated: 1448161519
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Bone_(1)
+    100002: Bone_(10)
+    100004: Bone_(11)
+    100006: Bone_(12)
+    100008: Bone_(2)
+    100010: Bone_(3)
+    100012: Bone_(4)
+    100014: Bone_(5)
+    100016: Bone_(6)
+    100018: Bone_(7)
+    100020: Bone_(8)
+    100022: Bone_(9)
+    100024: //RootNode
+    100026: swallow02:Layer5
+    100028: swallow02:Layer5_mesh
+    400000: Bone_(1)
+    400002: Bone_(10)
+    400004: Bone_(11)
+    400006: Bone_(12)
+    400008: Bone_(2)
+    400010: Bone_(3)
+    400012: Bone_(4)
+    400014: Bone_(5)
+    400016: Bone_(6)
+    400018: Bone_(7)
+    400020: Bone_(8)
+    400022: Bone_(9)
+    400024: //RootNode
+    400026: swallow02:Layer5
+    400028: swallow02:Layer5_mesh
+    4300000: swallow02:Layer5_mesh
+    7400000: Flap
+    7400002: Glide
+    9500000: //RootNode
+    13700000: swallow02:Layer5_mesh
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Flap
+      takeName: Base Stack
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: swallow02:Layer5
+        weight: 1
+      - path: swallow02:Layer5/Bone_(1)
+        weight: 1
+      - path: swallow02:Layer5/Bone_(1)/Bone_(2)
+        weight: 1
+      - path: swallow02:Layer5/Bone_(1)/Bone_(2)/Bone_(3)
+        weight: 1
+      - path: swallow02:Layer5/Bone_(1)/Bone_(2)/Bone_(3)/Bone_(4)
+        weight: 1
+      - path: swallow02:Layer5/Bone_(5)
+        weight: 1
+      - path: swallow02:Layer5/Bone_(5)/Bone_(6)
+        weight: 1
+      - path: swallow02:Layer5/Bone_(5)/Bone_(6)/Bone_(7)
+        weight: 1
+      - path: swallow02:Layer5/Bone_(5)/Bone_(6)/Bone_(7)/Bone_(8)
+        weight: 1
+      - path: swallow02:Layer5/Bone_(9)
+        weight: 1
+      - path: swallow02:Layer5/Bone_(10)
+        weight: 1
+      - path: swallow02:Layer5/Bone_(11)
+        weight: 1
+      - path: swallow02:Layer5/Bone_(12)
+        weight: 1
+      - path: swallow02:Layer5_mesh
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Glide
+      takeName: Base Stack
+      firstFrame: 20
+      lastFrame: 62
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: swallow02:Layer5
+        weight: 1
+      - path: swallow02:Layer5/Bone_(1)
+        weight: 1
+      - path: swallow02:Layer5/Bone_(1)/Bone_(2)
+        weight: 1
+      - path: swallow02:Layer5/Bone_(1)/Bone_(2)/Bone_(3)
+        weight: 1
+      - path: swallow02:Layer5/Bone_(1)/Bone_(2)/Bone_(3)/Bone_(4)
+        weight: 1
+      - path: swallow02:Layer5/Bone_(5)
+        weight: 1
+      - path: swallow02:Layer5/Bone_(5)/Bone_(6)
+        weight: 1
+      - path: swallow02:Layer5/Bone_(5)/Bone_(6)/Bone_(7)
+        weight: 1
+      - path: swallow02:Layer5/Bone_(5)/Bone_(6)/Bone_(7)/Bone_(8)
+        weight: 1
+      - path: swallow02:Layer5/Bone_(9)
+        weight: 1
+      - path: swallow02:Layer5/Bone_(10)
+        weight: 1
+      - path: swallow02:Layer5/Bone_(11)
+        weight: 1
+      - path: swallow02:Layer5/Bone_(12)
+        weight: 1
+      - path: swallow02:Layer5_mesh
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

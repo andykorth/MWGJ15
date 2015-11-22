@@ -14,6 +14,8 @@ public class GameManager : SingletonScript<GameManager> {
 
 	public int points = 0;
 
+	public bool paused = false;
+
 	public void Start(){
 		MusicManager.i.PlayGameMusic ();
 		UpdateNestRingCombo ();
@@ -51,6 +53,9 @@ public class GameManager : SingletonScript<GameManager> {
 			Bird.i.DropCoconut ();
 		}
 			
+		if (Input.GetKeyDown (KeyCode.Escape)) {
+			GameUI.i.TogglePausePanel ();
+		}
 
 	}
 
