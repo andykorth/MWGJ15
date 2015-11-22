@@ -27,6 +27,23 @@ GameObject:
   m_Component:
   - 4: {fileID: 424916}
   - 33: {fileID: 3323738}
+  - 64: {fileID: 6490656}
+  m_Layer: 9
+  m_Name: nestCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &161692
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 451828}
+  - 33: {fileID: 3333094}
   - 23: {fileID: 2342516}
   m_Layer: 0
   m_Name: nest01
@@ -74,6 +91,18 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 491060}
+  m_RootOrder: 1
+--- !u!4 &451828
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 161692}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 491060}
   m_RootOrder: 0
 --- !u!4 &491060
 Transform:
@@ -85,6 +114,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 451828}
   - {fileID: 424916}
   m_Father: {fileID: 416254}
   m_RootOrder: 0
@@ -93,7 +123,7 @@ MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 143098}
+  m_GameObject: {fileID: 161692}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -119,6 +149,13 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 143098}
   m_Mesh: {fileID: 4300000, guid: 3dd144c3dc61647aabb57f4478e96893, type: 3}
+--- !u!33 &3333094
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 161692}
+  m_Mesh: {fileID: 4300000, guid: 3dd144c3dc61647aabb57f4478e96893, type: 3}
 --- !u!33 &3347682
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -126,6 +163,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 124208}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!64 &6490656
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 143098}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_Mesh: {fileID: 4300000, guid: 3dd144c3dc61647aabb57f4478e96893, type: 3}
 --- !u!114 &11408774
 MonoBehaviour:
   m_ObjectHideFlags: 1

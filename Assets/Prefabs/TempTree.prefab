@@ -26,7 +26,7 @@ GameObject:
   - 33: {fileID: 3379090}
   - 23: {fileID: 2335480}
   - 64: {fileID: 6463926}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: tallTree01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
