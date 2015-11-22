@@ -7,6 +7,9 @@ public class MusicManager : SingletonScript<MusicManager> {
 
 	private AudioSource titleSauce, gameSauce;
 
+	public AudioClip menuClick;
+	public AudioClip gameOver;
+
 	// Use this for initialization
 	void Start () {
 		titleSauce = this.gameObject.AddComponent<AudioSource> ();
@@ -31,8 +34,8 @@ public class MusicManager : SingletonScript<MusicManager> {
 		}
 
 		AddAnimation (1.0f, (a) => {
-			start.volume = a;
-			stop.volume = 1f - a;
+			start.volume = (a) * 0.5f;
+			stop.volume = (1f - a) * 0.5f;
 		});
 		AddDelayed (1.1f, stop.Stop);
 	}
@@ -42,4 +45,16 @@ public class MusicManager : SingletonScript<MusicManager> {
 	void Update () {
 	
 	}
+
+	public static void PlayClip(AudioClip clip){
+		if(clip == null) return;
+		GameObject newClip = new GameObject(clip.name + " Instantiation");
+		newClip.AddComponent(typeof(AudioSource));
+		newClip.GetComponent<AudioSource>().clip = clip;
+
+		newClip.GetComponent<AudioSource>().Play();
+		Object.Destroy(newClip, clip.length + 0.5f);
+	}
+
+
 }

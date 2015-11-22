@@ -14,6 +14,9 @@ public class GameUI : SingletonScript<GameUI> {
 	public void ToggleInvert(){
 		PlayerPrefs.SetInt ("Inverted", PlayerPrefs.GetInt ("Inverted", 1) == 1 ? 0 : 1);
 		UpdateInvertText ();
+
+		MusicManager.PlayClip(MusicManager.i.menuClick);
+
 	}
 
 	public void UpdateInvertText(){
@@ -30,6 +33,7 @@ public class GameUI : SingletonScript<GameUI> {
 	}
 
 	public void UnPause(){
+		MusicManager.PlayClip(MusicManager.i.menuClick);
 		TogglePausePanel ();
 	}
 

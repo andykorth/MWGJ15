@@ -22,8 +22,10 @@ public class GameManager : SingletonScript<GameManager> {
 	}
 
 	public void GameOver(){
-
-		AddDelayed (1.5f, () => Application.LoadLevel (Application.loadedLevelName)); 
+		MusicManager.PlayClip(MusicManager.i.gameOver);
+		AddDelayed (1.5f, () => {
+			Application.LoadLevel (Application.loadedLevelName);
+		}); 
 	}
 
 	public void GetPoint ()

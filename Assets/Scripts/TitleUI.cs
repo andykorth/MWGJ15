@@ -7,6 +7,7 @@ public class TitleUI : MonoBehaviour {
 	public Text invertText;
 
 	public void ToggleInvert(){
+		MusicManager.PlayClip(MusicManager.i.menuClick);
 		PlayerPrefs.SetInt ("Inverted", PlayerPrefs.GetInt ("Inverted", 1) == 1 ? 0 : 1);
 		UpdateInvertText ();
 	}
@@ -23,6 +24,7 @@ public class TitleUI : MonoBehaviour {
 		
 
 	public void PlayGame(){
+		MusicManager.PlayClip(MusicManager.i.menuClick);
 		Application.LoadLevel ("Game");
 	}
 }
