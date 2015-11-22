@@ -50,7 +50,7 @@ public class Bird : SingletonScript<Bird> {
 
 //		rb.
 //		rb.useGravity = false;
-		rb.velocity = transform.forward * 80.0f;
+		rb.velocity = transform.forward * 95.0f;
 
 		coconut.gameObject.SetActive (false);
 	}
