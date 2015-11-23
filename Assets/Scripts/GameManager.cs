@@ -16,6 +16,9 @@ public class GameManager : SingletonScript<GameManager> {
 
 	public bool paused = false;
 
+	private int nestIndex, ringIndex;
+
+
 	public void Start(){
 		MusicManager.i.PlayGameMusic ();
 		UpdateNestRingCombo ();
@@ -37,16 +40,17 @@ public class GameManager : SingletonScript<GameManager> {
 	}
 
 	public void UpdateNestRingCombo(){
-		ActivateOneIn (nests);
-		ActivateOneIn (rings);
+		ActivateOneIn (nests, ref nestIndex);
+		ActivateOneIn (rings, ref ringIndex);
 	}
 
-	public void ActivateOneIn(Transform parent){
-		int target = Random.Range(0,parent.childCount);
+	public void ActivateOneIn(Transform parent, ref int index){
+		int target = index % parent.childCount;
 		for(int i= 0; i < parent.childCount; i++){
 			GameObject go = parent.GetChild(i).gameObject;
 			go.SetActive (target == i);
 		}
+		index += 1;
 	}
 
 	public void Update(){

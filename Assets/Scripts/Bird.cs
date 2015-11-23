@@ -34,13 +34,15 @@ public class Bird : SingletonScript<Bird> {
 	public void Start(){
 		coconut.localPosition = Vector3.down * coconutDistance;
 		CheckInvert ();
+		coconut.gameObject.SetActive (false);
+		hasCoconut = false;
 	}
 
 	public void CheckInvert(){
 		inverted = PlayerPrefs.GetInt ("Inverted", 1) == 1;
 	}
 
-	private bool hasCoconut = true;
+	private bool hasCoconut = false;
 
 	public Animator animator;
 
